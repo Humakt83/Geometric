@@ -6,6 +6,7 @@ import android.app.ListFragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 
@@ -80,7 +81,9 @@ public class GeomListFragment extends ListFragment {
                 GeomContent.ITEMS) {
             @Override
             public View getView(int position, View view, ViewGroup parent) {
-
+                ImageView imageView = new ImageView(getContext());
+                imageView.setImageResource(this.getItem(position).picture);
+                return imageView;
             }
         });
     }
