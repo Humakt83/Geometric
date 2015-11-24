@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 
+import fi.ukkosnetti.geometric.model.Geom;
+
 
 /**
  * An activity representing a list of geoms. This activity
@@ -57,13 +59,13 @@ public class GeomListActivity extends Activity
      * indicating that the item with the given ID was selected.
      */
     @Override
-    public void onItemSelected(int picture) {
+    public void onItemSelected(Geom geom) {
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putInt(GeomDetailFragment.ARG_ITEM_ID, picture);
+            arguments.putSerializable(GeomDetailFragment.ARG_ITEM_ID, geom);
             GeomDetailFragment fragment = new GeomDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
@@ -74,7 +76,7 @@ public class GeomListActivity extends Activity
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, GeomDetailActivity.class);
-            detailIntent.putExtra(GeomDetailFragment.ARG_ITEM_ID, picture);
+            detailIntent.putExtra(GeomDetailFragment.ARG_ITEM_ID, geom);
             startActivity(detailIntent);
         }
     }

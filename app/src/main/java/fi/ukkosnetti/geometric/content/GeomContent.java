@@ -15,7 +15,7 @@ public class GeomContent {
     public static Map<Geom.Shape, Geom> ITEM_MAP = new HashMap<>();
 
     static {
-        addItem(new Geom(R.drawable.nelio, Geom.Shape.SQUARE));
+        addItem(new Geom(R.drawable.nelio, Geom.Shape.RECTANGLE));
         addItem(new Geom(R.drawable.kolmio, Geom.Shape.TRIANGLE));
         addItem(new Geom(R.drawable.pallo, Geom.Shape.CIRCLE));
     }

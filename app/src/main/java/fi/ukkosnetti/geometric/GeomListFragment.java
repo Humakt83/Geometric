@@ -50,7 +50,7 @@ public class GeomListFragment extends ListFragment {
         /**
          * Callback for when an item has been selected.
          */
-        public void onItemSelected(int picture);
+        public void onItemSelected(Geom geom);
     }
 
     /**
@@ -59,7 +59,7 @@ public class GeomListFragment extends ListFragment {
      */
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
-        public void onItemSelected(int picture) {
+        public void onItemSelected(Geom picture) {
         }
     };
 
@@ -125,7 +125,7 @@ public class GeomListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(GeomContent.ITEMS.get(position).picture);
+        mCallbacks.onItemSelected(GeomContent.ITEMS.get(position));
     }
 
     @Override

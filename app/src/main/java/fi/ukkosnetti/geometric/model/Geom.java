@@ -1,12 +1,17 @@
 package fi.ukkosnetti.geometric.model;
 
-/**
- * Created by Thunder on 26.7.2015.
- */
-public class Geom {
+import java.io.Serializable;
+
+public class Geom implements Serializable {
 
     public enum Shape {
-        SQUARE, TRIANGLE, CIRCLE;
+        RECTANGLE(2), TRIANGLE(2), CIRCLE(1);
+
+        public final int argumentAmount;
+
+        private Shape(int argumentAmount) {
+            this.argumentAmount = argumentAmount;
+        }
     }
 
     public final int picture;

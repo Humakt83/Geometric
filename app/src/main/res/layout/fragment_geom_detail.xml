@@ -1,5 +1,35 @@
-<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/geom_detail"
-    style="?android:attr/textAppearanceLarge" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:padding="16dp" android:textIsSelectable="true"
-    tools:context=".geomDetailFragment" />
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".geomDetailFragment"
+    android:orientation="vertical"
+    >
+
+    <ImageView  android:id="@+id/geom_detail"
+        style="?android:attr/textAppearanceLarge" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:padding="16dp" android:textIsSelectable="true"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/inputFields"></LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:id="@+id/calculateButton"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&quot;Perimeter: Area:&quot;"
+        android:id="@+id/valuesOutput"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
