@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -60,11 +61,18 @@ public class GeomDetailFragment extends Fragment {
     @OnClick(R.id.calculateButton)
     public void calculate() {
         double[] arguments = new double[mItem.shape.argumentAmount];
-        for (int i = 0; i < arguments.length; i++) {
-            arguments[i] = Double.parseDouble(inputFields.get(i).getText().toString());
+        try {
+            for (int i = 0; i < arguments.length; i++) {
+                arguments[i] = Double.parseDouble(inputFields.get(i).getText().toString());
+                if (arguments[i] <= 0) {
+                    throw new IllegalArgumentException("All values must be greater than zero");
+                }
+            }
+            Shape shape = ShapeFactory.generate(mItem.shape, arguments);
+            valuesOutputView.setText(String.format("Perimeter: %.2f, Area: %.2f", shape.perimeter(), shape.area()));
+        } catch (Exception e) {
+            Toast.makeText(this.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
-        Shape shape = ShapeFactory.generate(mItem.shape, arguments);
-        valuesOutputView.setText(String.format("Perimeter: %f, Area: %f", shape.perimeter(), shape.area()));
     }
 
     @Override
@@ -80,6 +88,9 @@ public class GeomDetailFragment extends Fragment {
         for (int i = 0; i < mItem.shape.argumentAmount; i++) {
             EditText editText = new EditText(this.getContext());
             editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+            editText.setMinWidth(150);
+            editText.setSingleLine();
+            editText.setPadding(15, 15, 15, 15);
             inputFields.add(editText);
             inputs.addView(editText);
         }

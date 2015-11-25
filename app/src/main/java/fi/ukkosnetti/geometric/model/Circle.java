@@ -10,7 +10,7 @@ public class Circle implements Shape {
 
     @Override
     public double perimeter() {
-        return diameter / 2;
+        return Math.PI * diameter;
     }
 
     @Override

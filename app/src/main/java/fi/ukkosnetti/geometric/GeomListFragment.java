@@ -83,6 +83,7 @@ public class GeomListFragment extends ListFragment {
             public View getView(int position, View view, ViewGroup parent) {
                 ImageView imageView = new ImageView(getContext());
                 imageView.setImageResource(this.getItem(position).picture);
+                imageView.setPadding(15, 15, 15, 15);
                 return imageView;
             }
         });
