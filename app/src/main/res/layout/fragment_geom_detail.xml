@@ -9,7 +9,16 @@
 
     <ImageView  android:id="@+id/geom_detail"
         style="?android:attr/textAppearanceLarge" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:padding="16dp" android:textIsSelectable="true"/>
+        android:layout_height="wrap_content" android:padding="16dp" android:textIsSelectable="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Provide values"
+        android:id="@+id/inputsLabel"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:orientation="horizontal"

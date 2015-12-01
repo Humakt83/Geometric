@@ -44,6 +44,9 @@ public class GeomDetailFragment extends Fragment {
     @Bind(R.id.valuesOutput)
     protected TextView valuesOutputView;
 
+    @Bind(R.id.inputsLabel)
+    protected TextView inputsLabel;
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -83,6 +86,7 @@ public class GeomDetailFragment extends Fragment {
         if (mItem != null) {
             ((ImageView) rootView.findViewById(R.id.geom_detail)).setImageResource(mItem.picture);
         }
+        inputsLabel.setText(mItem.shape.message);
 
         LinearLayout inputs = (LinearLayout) rootView.findViewById(R.id.inputFields);
         for (int i = 0; i < mItem.shape.argumentAmount; i++) {
