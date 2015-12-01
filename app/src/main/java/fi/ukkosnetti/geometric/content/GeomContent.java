@@ -18,6 +18,9 @@ public class GeomContent {
         addItem(new Geom(R.drawable.nelio, Geom.Shape.RECTANGLE));
         addItem(new Geom(R.drawable.kolmio, Geom.Shape.TRIANGLE));
         addItem(new Geom(R.drawable.pallo, Geom.Shape.CIRCLE));
+        addItem(new Geom(R.drawable.box, Geom.Shape.BOX));
+        addItem(new Geom(R.drawable.pyramid, Geom.Shape.PYRAMID));
+        addItem(new Geom(R.drawable.ball, Geom.Shape.BALL));
     }
 
     private static void addItem(Geom item) {

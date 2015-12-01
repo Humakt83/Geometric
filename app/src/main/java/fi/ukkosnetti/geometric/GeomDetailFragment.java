@@ -22,6 +22,7 @@ import butterknife.OnClick;
 import fi.ukkosnetti.geometric.content.GeomContent;
 import fi.ukkosnetti.geometric.model.Geom;
 import fi.ukkosnetti.geometric.model.Shape;
+import fi.ukkosnetti.geometric.model.Shape3D;
 import fi.ukkosnetti.geometric.model.ShapeFactory;
 
 /**
@@ -71,10 +72,17 @@ public class GeomDetailFragment extends Fragment {
                     throw new IllegalArgumentException("All values must be greater than zero");
                 }
             }
-            Shape shape = ShapeFactory.generate(mItem.shape, arguments);
-            valuesOutputView.setText(String.format("Perimeter: %.2f, Area: %.2f", shape.perimeter(), shape.area()));
+            setResult(ShapeFactory.generate(mItem.shape, arguments));
         } catch (Exception e) {
             Toast.makeText(this.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void setResult(Shape shape) {
+        if (shape instanceof Shape3D) {
+            valuesOutputView.setText(String.format("Volume: %.2f, Area: %.2f, Perimeter: %.2f", ((Shape3D) shape).volume(), shape.area(), shape.perimeter()));
+        } else {
+            valuesOutputView.setText(String.format("Perimeter: %.2f, Area: %.2f", shape.perimeter(), shape.area()));
         }
     }
 

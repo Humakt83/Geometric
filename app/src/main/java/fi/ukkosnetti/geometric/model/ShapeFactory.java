@@ -17,6 +17,15 @@ public class ShapeFactory {
             case TRIANGLE:
                 shape = new Triangle(args[0], args[1]);
                 break;
+            case BOX:
+                shape = new RectangularParallelepiped(args[0], args[1], args[2]);
+                break;
+            case PYRAMID:
+                shape = new Pyramid(args[0], args[1], args[2]);
+                break;
+            case BALL:
+                shape = new Sphere(args[0]);
+                break;
             default:
                 throw new UnsupportedOperationException("Unsupported shape " + geomShape);
         }

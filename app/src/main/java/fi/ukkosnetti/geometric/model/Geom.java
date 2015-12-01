@@ -5,7 +5,8 @@ import java.io.Serializable;
 public class Geom implements Serializable {
 
     public enum Shape {
-        RECTANGLE(2, "Provide height and width"), TRIANGLE(2, "Provide height and width"), CIRCLE(1, "Provide diameter");
+        RECTANGLE(2, "Provide height and width"), TRIANGLE(2, "Provide height and width"), CIRCLE(1, "Provide diameter"),
+        BALL(1, "Provide radius"), BOX(3, "Provide height, width and length"), PYRAMID(3, "Provide base length, width and pyramid height");
 
         public final int argumentAmount;
 
